@@ -22,6 +22,8 @@ import java.util.Base64;
 
 @Controller
 public class WidgetController {
+    @Value("${api.key}")
+    private String API_KEY;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -48,7 +50,7 @@ public class WidgetController {
 
         // TODO: 개발자센터에 로그인해서 내 결제위젯 연동 키 > 시크릿 키를 입력하세요. 시크릿 키는 외부에 공개되면 안돼요.
         // @docs https://docs.tosspayments.com/reference/using-api/api-keys
-        String widgetSecretKey = "test_gsk_docs_OaPz8L5KdmQXkzRz3y47BMw6";
+        String widgetSecretKey = API_KEY;
 
         // 토스페이먼츠 API는 시크릿 키를 사용자 ID로 사용하고, 비밀번호는 사용하지 않습니다.
         // 비밀번호가 없다는 것을 알리기 위해 시크릿 키 뒤에 콜론을 추가합니다.
